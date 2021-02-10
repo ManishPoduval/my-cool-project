@@ -28,7 +28,7 @@ router.post("/signup", (req, res, next) => {
     // we're missing one important step here
     if (!name.length || !email.length || !password.length) {
         res.render('auth/signup', {msg: 'Please enter all fields'})
-        return;
+        return 
     }
 
     // validate if the user has entered email in the right format ( @ , .)
@@ -109,7 +109,6 @@ const checkLoggedInUser = (req, res, next) => {
      else {
          res.redirect('/signin')
      }
-     
 }
 
 router.get('/profile', checkLoggedInUser, (req, res, next) => {
@@ -117,29 +116,10 @@ router.get('/profile', checkLoggedInUser, (req, res, next) => {
     res.render('profile.hbs', {email })
 })
 
-
 //router.get(path, callback,callback,callback,callback,callback)
 router.get('/logout', (req, res) => {
     req.session.destroy()
     res.redirect('/')
 })
 
-
-
-
-
-
 module.exports = router;
-
-
-
-// {"cookie":
-//     {"originalMaxAge":86400000,
-//     "expires":"2021-02-10T14:57:09.403Z",
-//     "httpOnly":true,
-//     "path":"/"},
-//  "userData":{
-//       "_id":"602269a49bbe4d24c814eba3",
-//       "name":"manish",
-//       "email":"a@a.com",
-//       "password":"$2a$10$Ft8J7o5v7ntc1hMJN/DIfe94l7VXrugk9ZraQyB6RYpMDfKOXq6I6","__v":0}}
