@@ -56,6 +56,6 @@ app.use("/", authRoutes);
 require("./error-handling")(app);
 
 // New feature
-let bestPokemonEver = 'Bulbasaur'
+let bestPokemonEver = 'Pikachu'
 
 module.exports = app;
